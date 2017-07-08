@@ -183,7 +183,7 @@ public:;
     std::string filename(uint32_t connection_count); 
     // return a new filename for a flow based on the temlate,
     // optionally opening the file and returning a fd if &fd is provided
-    std::string new_filename(int *fd,int flags,int mode);	
+    std::string new_filename(int *fd,int flags,int mode, int direction);	
 
     bool has_mac_daddr(){
         return mac_daddr[0] || mac_daddr[1] || mac_daddr[2] || mac_daddr[3] || mac_daddr[4] || mac_daddr[5];

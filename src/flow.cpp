@@ -157,11 +157,15 @@ std::string flow::filename(uint32_t connection_count)
  * This is called from tcpip::open_file().
  */
 
-std::string flow::new_filename(int *fd,int flags,int mode)
+std::string flow::new_filename(int *fd,int flags,int mode, int direction)
 {
     /* Loop connection count until we find a file that doesn't exist */
     for(uint32_t connection_count=0;;connection_count++){
         std::string nfn = filename(connection_count);
+	if (direction == tcpip::dir_cs)
+	    nfn.append(".client");
+	else
+	    nfn.append(".server");
         if(nfn.find('/')!=std::string::npos) mkdirs_for_path(nfn.c_str());
         int nfd = tcpdemux::getInstance()->retrying_open(nfn,flags,mode);
         if(nfd>=0){
