@@ -100,8 +100,8 @@ static std::string get_working_dir(const std::string& path)
 void ScanPython::init(const scanner_params& /*sp*/)
 {
     if (py_module.empty() || py_function.empty()) {
-        DEBUG(1)("[scan_python] Cannot call python becase no provided module/function."  "\n"
-                 "\t\t\t\t"  "Please use arguments -S py_module=module -S py_function=foo" );
+        //DEBUG(1)("[scan_python] Cannot call python becase no provided module/function."  "\n"
+        //         "\t\t\t\t"  "Please use arguments -S py_module=module -S py_function=foo" );
         // "\n"  "\t\t\t\t"  "The scanner 'python' is disabled to avoid warning messages.");
         // sp.info->flags = scanner_info::SCANNER_DISABLED;
         // TODO(simsong): Should we disable the scanner to avoid warnings?
